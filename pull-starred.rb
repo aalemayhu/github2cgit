@@ -12,11 +12,13 @@ def pull_repositories_with(config)
   FileUtils.mv(tmp_path, config.file_path)
 end
 
-
 user = ENV['GITHUB_USER'] || "scanf"
-local_git_directory = ENV['GIT_REPO_DIRECTORY'] || "/tmp"
-starred_path = ENV['STARRED_GITHUB_REPOSITORIES'] || "/etc/starred_repositories"
+local_git_directory = ENV['CGIT_REPO_DIRECTORY'] || "/tmp"
+starred_path = ENV['CGIT_REPOSITORIES_FILE'] || "/etc/github_repositories"
 
-starred_config = Configuration.new(user, "starred", starred_path, local_git_directory)
+configs = [Configuration.new(user, "starred", starred_path, local_git_directory),
+           Configuration.new(user, "repos", starred_path, local_git_directory)]
 
-pull_repositories_with(starred_config)
+configs.each do |config|
+  pull_repositories_with(config)
+end
