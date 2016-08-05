@@ -9,4 +9,4 @@ mkdir -p $CGIT_REPO_DIRECTORY
 touch $CGIT_REPOSITORIES_FILE
 
 ruby /root/github2cgit/pull-starred.rb
-sudo chown -R www-data:www-data $GIT_REPO_DIRECTORY
+sudo chown -R www-data:www-data $CGIT_REPOSITORIES_FILE
