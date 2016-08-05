@@ -11,6 +11,7 @@ starred_repositories = HTTParty.get("https://api.github.com/users/#{user}/starre
 starred_repositories.each  do |repo| 
   name = repo["name"]
   description = repo["description"]
+  owner=repo["owner"]["login"]
   git_url = repo["git_url"]
   local_path = "#{local_git_directory}/#{name}.git" # is this right?
   if File.directory?(local_path)
@@ -21,6 +22,7 @@ starred_repositories.each  do |repo|
   starred_file.write("\nrepo.url=#{name}\n")
   starred_file.write("repo.path=#{local_path}\n")
   starred_file.write("repo.desc=#{description}\n")
+  starred_file.write("repo.owner=#{owner}\n")
 end
 
 starred_file.close unless starred_file.nil?
