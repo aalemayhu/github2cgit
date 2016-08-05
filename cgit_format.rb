@@ -8,7 +8,7 @@ def write_cgit_format_to(config_file, repos, local_git_directory)
     if File.directory?(local_path)
       `cd #{local_path} && git pull --quiet --all &`
     else
-      `git clone --quiet #{git_url} #{local_path} &`
+      `git clone --mirror --quiet #{git_url} #{local_path} &`
     end
     config_file.write("\nrepo.url=#{name}\n")
     config_file.write("repo.path=#{local_path}\n")
