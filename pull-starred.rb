@@ -19,7 +19,6 @@ starred_repositories.each  do |repo|
   starred_file.write("repo.url=#{name}\n")
   starred_file.write("repo.path=#{local_path}\n")
   starred_file.write("repo.desc=#{description}\n")
-  starred_file.write("")
 end
 
 starred_file.close unless starred_file.nil?
