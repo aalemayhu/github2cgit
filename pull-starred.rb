@@ -12,9 +12,9 @@ starred_repositories.each  do |repo|
   git_url = repo["git_url"]
   local_path = "#{local_git_directory}/#{name}.git" # is this right?
   if File.directory?(local_path)
-    `cd #{local_path} && git pull --quiet --all`
+    `cd #{local_path} && git pull --quiet --all &`
   else
-    `git clone --quiet #{git_url} #{local_path}`
+    `git clone --quiet #{git_url} #{local_path} &`
   end
   starred_file.write("repo.url=#{name}")
   starred_file.write("repo.path=#{local_path}")
