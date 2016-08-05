@@ -6,7 +6,7 @@ def write_cgit_format_to(config_file, repos, local_git_directory)
     git_url = repo["git_url"]
     local_path = "#{local_git_directory}/#{name}.git" # is this right?
     if File.directory?(local_path)
-      `cd #{local_path} && git pull --quiet --all &`
+      `cd #{local_path} && git remote update --quiet &`
     else
       `git clone --mirror --quiet #{git_url} #{local_path} &`
     end
