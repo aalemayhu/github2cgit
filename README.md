@@ -1,8 +1,10 @@
 # github2cgit
 
-Just something to help generate the information required by [cgit][0] to display you repository.
-All scripts generate their own files please remember to include them in your `/etc/cgitrc`.
-You can easily include e.g. the repositories as following:
+Just something to help generate the information required by [cgit][0] to
+display your repository.  Please remember to include the repository file in
+your `/etc/cgitrc`.
+
+Here is a real example:
 
     css=/cgit.css
     logo=/cgit.png
