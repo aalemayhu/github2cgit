@@ -11,4 +11,10 @@ Here is a real example:
         virtual-root=/
         include=/etc/github_repositories
 
+## TODO
+
+- [ ] Support private repsitories.
+- [ ] Support public and private organizations.
+- [ ] Use external configuration files for users and organizations.
+
 [0]: http://git.zx2c4.com/cgit/
