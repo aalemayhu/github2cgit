@@ -1,6 +1,10 @@
 require 'httparty'
 
-starred_repositories = HTTParty.get("https://api.github.com/users/scanf/starred")
+write_path = ENV['STARRED_GITHUB_REPOSITORIES'] || "/etc/starred_repositories"
+user = ENV['GITHUB_USER'] || "scanf"
+starred_file = File.open(write_path, 'w')
+
+starred_repositories = HTTParty.get("https://api.github.com/users/#{user}/starred")
 starred_repositories.each  do |repo| 
   name = repo["name"]
   description = repo["description"]
@@ -11,8 +15,10 @@ starred_repositories.each  do |repo|
   else
     `git clone --quiet #{git_url} #{local_path}`
   end
-  puts "repo.url=#{name}"
-  puts "repo.path=#{local_path}"
-  puts "repo.desc=#{description}"
-  puts ""
+  starred_file("repo.url=#{name}")
+  starred_file("repo.path=#{local_path}")
+  starred_file("repo.desc=#{description}")
+  starred_file("")
 end
+
+starred_file.close unless starred_file.nil?
