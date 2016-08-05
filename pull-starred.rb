@@ -16,7 +16,7 @@ starred_repositories.each  do |repo|
   else
     `git clone --quiet #{git_url} #{local_path} &`
   end
-  starred_file.write("repo.url=#{name}\n")
+  starred_file.write("\nrepo.url=#{name}\n")
   starred_file.write("repo.path=#{local_path}\n")
   starred_file.write("repo.desc=#{description}\n")
 end
