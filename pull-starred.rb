@@ -21,7 +21,7 @@ starred_repositories.each  do |repo|
   end
   starred_file.write("\nrepo.url=#{name}\n")
   starred_file.write("repo.path=#{local_path}\n")
-  starred_file.write("repo.desc=#{local_path}\n")
+  starred_file.write("repo.desc=#{description}\n")
   starred_file.write("repo.owner=#{owner}\n")
 end
 
