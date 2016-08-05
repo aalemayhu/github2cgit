@@ -1,0 +1,12 @@
+#!/bin/sh
+
+# This file is included in /etc/cgitrc
+export STARRED_GITHUB_REPOSITORIES="/etc/starred_repositories"
+export GITHUB_USER=scanf
+export GIT_REPO_DIRECTORY=/srv/git
+
+touch $STARRED_GITHUB_REPOSITORIES
+mkdir -p $GIT_REPO_DIRECTORY
+
+ruby /root/github2cgit/pull-starred.rb
+sudo chown -R www-data:www-data $GIT_REPO_DIRECTORY
