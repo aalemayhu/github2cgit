@@ -1,2 +1,2 @@
 all:
-	ruby pull-starred.rb
+	ruby run.rb
