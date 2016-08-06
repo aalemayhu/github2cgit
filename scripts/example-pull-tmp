@@ -8,4 +8,4 @@ mkdir -p $CGIT_REPO_DIRECTORY
 touch $CGIT_REPOSITORIES_FILE
 
 
-ruby pull-starred.rb
+ruby run.rb
