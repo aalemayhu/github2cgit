@@ -16,5 +16,6 @@ Here is a real example:
 - [ ] Support private repsitories.
 - [ ] Support public and private organizations.
 - [ ] Use external configuration files for users and organizations.
+- [ ] Prevent duplication.
 
 [0]: http://git.zx2c4.com/cgit/
