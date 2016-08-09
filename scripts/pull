@@ -8,5 +8,5 @@ export CGIT_REPO_DIRECTORY=/srv/git
 mkdir -p $CGIT_REPO_DIRECTORY
 touch $CGIT_REPOSITORIES_FILE
 
-ruby /root/github2cgit/run.rb
+ruby /root/src/github.com/scanf/github2cgit/run.rb
 sudo chown -R www-data:www-data $CGIT_REPOSITORIES_FILE
