@@ -4,7 +4,7 @@ def write_cgit_format_to(config_file, repos, local_git_directory)
     description = repo["description"]
     owner=repo["owner"]["login"]
     git_url = repo["git_url"]
-    local_path = "#{local_git_directory}/#{name}.git" # is this right?
+    local_path = "#{local_git_directory}/#{owner}/#{name}.git" # is this right?
     if File.directory?(local_path)
       `cd #{local_path} && git remote update &`
     else
