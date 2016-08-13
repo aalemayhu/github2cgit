@@ -2,6 +2,7 @@ require 'httparty'
 require 'fileutils'
 require_relative 'cgit_format.rb'
 require_relative 'configuration.rb'
+require_relative 'process.rb'
 
 
 user = ENV['GITHUB_USER'] || "scanf"
@@ -26,9 +27,9 @@ config_file = File.open(tmp_path, 'w')
 cgit_repositories.each  do |repo| 
   local_path = "#{local_git_directory}/#{repo.owner}/#{repo.name}.git" # is this right?
   if File.directory?(local_path)
-    puts `cd #{local_path} && git remote update &`
+    runInBackground("cd #{local_path} && git remote update &")
   else
-    puts `git clone --mirror --quiet #{repo.git_url} #{local_path} &`
+    runInBackground("git clone --mirror --quiet #{repo.git_url} #{local_path} &")
   end
   config_file.write(repo.to_string())
 end
