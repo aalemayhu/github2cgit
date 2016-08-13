@@ -1,8 +1,10 @@
 require 'httparty'
 require 'fileutils'
-require_relative '../src/cgit_format.rb'
+require_relative '../src/cgit.rb'
 require_relative '../src/github_data_source.rb'
 require_relative '../src/process.rb'
+
+include Cgit
 
 class App
   attr_accessor :user
