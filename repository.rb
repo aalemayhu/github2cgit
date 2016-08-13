@@ -1,15 +1,20 @@
 class Repository
   
-  attr_accessor :url
-  attr_accessor :path
-  attr_accessor :desc
+  attr_accessor :name
+  attr_accessor :description
   attr_accessor :owner
+  attr_accessor :git_url
 
-  def initialize(url, path, desc, owner)
-    @url = url
-    @path = path
-    @desc = desc
+  def initialize(name, description, owner, git_url)
+    @name = name
+    @description = description
     @owner = owner
+    @git_url = git_url
+  end
+
+  def local_path
+    local_git_directory = ENV['CGIT_REPO_DIRECTORY'] || "/tmp"
+    return "#{local_git_directory}/#{owner}/#{name}.git"
   end
 
   def to_string

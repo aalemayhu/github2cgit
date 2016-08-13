@@ -1,17 +1,14 @@
-def write_cgit_format_to(config_file, repos, local_git_directory)
-  repos.each  do |repo| 
+require_relative 'repository.rb'
+
+def map_to_cgit_repos(github_repository_payload)
+  cgit_repos = []
+  github_repository_payload.each  do |repo| 
     name = repo["name"]
     description = repo["description"]
-    owner=repo["owner"]["login"]
+    owner = repo["owner"]["login"]
     git_url = repo["git_url"]
-    local_path = "#{local_git_directory}/#{owner}/#{name}.git" # is this right?
-    if File.directory?(local_path)
-      `cd #{local_path} && git remote update &`
-    else
-      `git clone --mirror --quiet #{git_url} #{local_path} &`
-    end
-
-    cgit_repo = Repository.new(name, local_path, description, owner)
-    config_file.write(cgit_repo.to_string())
+    cgit_repos.push(Repository.new(name, description, owner, git_url))
   end
+  return cgit_repos
 end
+
