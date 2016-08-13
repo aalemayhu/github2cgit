@@ -8,4 +8,4 @@ mkdir -p $CGIT_REPO_DIRECTORY
 touch $CGIT_REPOSITORIES_FILE
 
 
-ruby run.rb
+ruby bin/run.rb

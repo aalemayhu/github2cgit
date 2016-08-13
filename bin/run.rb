@@ -1,8 +1,8 @@
 require 'httparty'
 require 'fileutils'
-require_relative 'cgit_format.rb'
-require_relative 'configuration.rb'
-require_relative 'process.rb'
+require_relative '../src/cgit_format.rb'
+require_relative '../src/configuration.rb'
+require_relative '../src/process.rb'
 
 
 user = ENV['GITHUB_USER'] || "scanf"
