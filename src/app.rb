@@ -1,7 +1,7 @@
 require 'httparty'
 require 'fileutils'
 require_relative '../src/cgit_format.rb'
-require_relative '../src/configuration.rb'
+require_relative '../src/github_data_source.rb'
 require_relative '../src/process.rb'
 
 class App
@@ -16,8 +16,8 @@ class App
   end
 
   def run
-    configs = [Configuration.new(user, "starred", cgit_repositories_rcpath, local_git_directory),
-               Configuration.new(user, "repos", cgit_repositories_rcpath, local_git_directory)]
+    configs = [GithubDataSource.new(user, "starred", cgit_repositories_rcpath, local_git_directory),
+               GithubDataSource.new(user, "repos", cgit_repositories_rcpath, local_git_directory)]
 
     cgit_repositories = []
     configs.each do |config|

@@ -1,4 +1,4 @@
-class Configuration
+class GithubDataSource
   
   attr_accessor :user
   attr_accessor :endpoint
