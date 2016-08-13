@@ -1,3 +1,5 @@
+require 'httparty'
+
 class GithubDataSource
   
   attr_accessor :user
@@ -14,5 +16,9 @@ class GithubDataSource
 
   def url()
     return "https://api.github.com/users/#{user}/#{endpoint}"
+  end
+
+  def repositories
+    return HTTParty.get(url())
   end
 end
