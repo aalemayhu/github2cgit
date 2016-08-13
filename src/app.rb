@@ -38,7 +38,7 @@ class App
       else
         runInBackground("git clone --mirror --quiet #{repo.git_url} #{local_path} &")
       end
-      config_file.write(repo.to_string())
+      config_file.write(repo.to_string(local_git_directory))
     end
 
     config_file.close unless config_file.nil?

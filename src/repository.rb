@@ -12,14 +12,13 @@ class Repository
     @git_url = git_url
   end
 
-  def local_path
-    local_git_directory = ENV['CGIT_REPO_DIRECTORY'] || "/tmp"
+  def local_path(local_git_directory)
     return "#{local_git_directory}/#{owner}/#{name}.git"
   end
 
-  def to_string
+  def to_string(local_git_directory)
       return "\nrepo.url=#{name}\n" \
-      "repo.path=#{local_path}\n" \
+      "repo.path=#{local_path(local_git_directory)}\n" \
       "repo.desc=#{description}\n" \
       "repo.owner=#{owner}\n"
   end
