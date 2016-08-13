@@ -18,7 +18,7 @@ class Repository
   end
 
   def to_string
-      return "\nrepo.url=#{name}\n" \
+      return "\nrepo.url=#{owner}/#{name}\n" \
       "repo.path=#{local_path}\n" \
       "repo.desc=#{description}\n" \
       "repo.owner=#{owner}\n"
