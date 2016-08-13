@@ -1,3 +1,5 @@
+#!/usr/bin/ruby
+
 require_relative "../src/app.rb"
 
 user = ENV['GITHUB_USER'] || "scanf"

@@ -1,3 +1,5 @@
+#!/usr/bin/ruby
+
 require_relative "../src/app.rb"
 
 local_git_directory = "/srv/git"
