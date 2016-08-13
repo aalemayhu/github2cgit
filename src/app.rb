@@ -17,29 +17,25 @@ class App
   end
 
   def run
-
     cgit_repositories = repos_from([
       GithubDataSource.new(user, "starred", cgit_repositories_rcpath,
       local_git_directory),
       GithubDataSource.new(user, "repos", cgit_repositories_rcpath,
                            local_git_directory)])
+    persist(local_git_directory, cgit_repositories_rcpath, cgit_repositories)
+    clone_all(cgit_repositories)
+  end
 
-# Write config and clone all of the stuff
-
+  def clone_all(repositories)
     tmp_path = "#{cgit_repositories_rcpath}.tmp"
-    config_file = File.open(tmp_path, 'w')
-    cgit_repositories.each  do |repo|
+    repositories.each  do |repo|
       local_path = "#{local_git_directory}/#{repo.owner}/#{repo.name}.git" # is this right?
       if File.directory?(local_path)
         runInBackground("cd #{local_path} && git remote update &")
       else
         runInBackground("git clone --mirror --quiet #{repo.git_url} #{local_path} &")
       end
-      config_file.write(repo.to_string(local_git_directory))
     end
-
-    config_file.close unless config_file.nil?
-    FileUtils.mv(tmp_path, cgit_repositories_rcpath)
   end
 
   def repos_from(sources)

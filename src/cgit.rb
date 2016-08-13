@@ -36,4 +36,21 @@ module Cgit
     end
     return cgit_repos
   end
+
+  def persist(directory, path, repositories)
+    tmp_path = "#{path}.tmp"
+    config_file = File.open(tmp_path, 'w')
+    repositories.each  do |repo|
+      local_path = "#{directory}/#{repo.owner}/#{repo.name}.git" # is this right?
+      if File.directory?(local_path)
+        runInBackground("cd #{local_path} && git remote update &")
+      else
+        runInBackground("git clone --mirror --quiet #{repo.git_url} #{local_path} &")
+      end
+      config_file.write(repo.to_string(directory))
+    end
+
+    config_file.close unless config_file.nil?
+    FileUtils.mv(tmp_path, path)
+  end
 end
