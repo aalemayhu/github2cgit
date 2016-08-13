@@ -10,9 +10,8 @@ def write_cgit_format_to(config_file, repos, local_git_directory)
     else
       `git clone --mirror --quiet #{git_url} #{local_path} &`
     end
-    config_file.write("\nrepo.url=#{name}\n")
-    config_file.write("repo.path=#{local_path}\n")
-    config_file.write("repo.desc=#{description}\n")
-    config_file.write("repo.owner=#{owner}\n")
+
+    cgit_repo = Repository.new(name, local_path, description, owner)
+    config_file.write(cgit_repo.to_string())
   end
 end
