@@ -9,4 +9,5 @@ mkdir -p $CGIT_REPO_DIRECTORY
 touch $CGIT_REPOSITORIES_FILE
 
 ruby /root/src/github.com/scanf/github2cgit/run.rb
-sudo chown -R www-data:www-data $CGIT_REPOSITORIES_FILE
+sudo chown www-data:www-data $CGIT_REPOSITORIES_FILE
+sudo chown -R www-data:www-data $CGIT_REPO_DIRECTORY
