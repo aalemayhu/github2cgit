@@ -10,6 +10,9 @@ Here is a real example:
     logo=/cgit.png
         virtual-root=/
         include=/etc/github_repositories
+    enable-git-clone=1
+    enable-http-clone=1
+    snapshots=tar.gz tar.bz2 zip
 
 ## TODO
 
