@@ -13,6 +13,10 @@ Here is a real example:
     enable-git-clone=1
     enable-http-clone=1
     snapshots=tar.gz tar.bz2 zip
+    enable-index-links=1
+    enable-commit-graph=1
+    enable-log-filecount=1
+    enable-log-linecount=1
 
 ## TODO
 
