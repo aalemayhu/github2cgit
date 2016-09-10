@@ -17,6 +17,10 @@ Here is a real example:
     enable-commit-graph=1
     enable-log-filecount=1
     enable-log-linecount=1
+    enable-html-serving=1
+    enable-index-owner=1
+    enable-git-config=1
+    root-readme=/var/www/html/about.html
 
 ## TODO
 
