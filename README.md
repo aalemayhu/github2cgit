@@ -6,21 +6,21 @@ your `/etc/cgitrc`.
 
 Here is a real example:
 
+    include=/etc/github_repositories
+    virtual-root=/
     css=/cgit.css
-    logo=/cgit.png
-        virtual-root=/
-        include=/etc/github_repositories
-    enable-git-clone=1
-    enable-http-clone=1
-    snapshots=tar.gz tar.bz2 zip
-    enable-index-links=1
     enable-commit-graph=1
+    enable-git-clone=1
+    enable-git-config=1
+    enable-html-serving=1
+    enable-http-clone=1
+    enable-index-links=1
+    enable-index-owner=1
     enable-log-filecount=1
     enable-log-linecount=1
-    enable-html-serving=1
-    enable-index-owner=1
-    enable-git-config=1
+    logo=/cgit.png
     root-readme=/var/www/html/about.html
+    snapshots=tar.gz tar.bz2 zip
 
 ## TODO
 
