@@ -6,8 +6,6 @@ your `/etc/cgitrc`.
 
 Here is a real example:
 
-    include=/etc/github_repositories
-    virtual-root=/
     css=/cgit.css
     enable-commit-graph=1
     enable-git-clone=1
@@ -18,9 +16,13 @@ Here is a real example:
     enable-index-owner=1
     enable-log-filecount=1
     enable-log-linecount=1
+    include=/etc/github_repositories
     logo=/cgit.png
+    root-desc=
     root-readme=/var/www/html/about.html
+    root-title=git.alemayhu.de
     snapshots=tar.gz tar.bz2 zip
+    virtual-root=/
 
 ## TODO
 
