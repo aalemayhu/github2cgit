@@ -18,7 +18,7 @@ Here is a real example:
     enable-log-linecount=1
     include=/etc/github_repositories
     logo=/cgit.png
-    root-desc=
+    root-desc=eine CGI-Anwendung
     root-readme=/var/www/html/about.html
     root-title=git.alemayhu.de
     snapshots=tar.gz tar.bz2 zip
